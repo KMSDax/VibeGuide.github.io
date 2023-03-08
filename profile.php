@@ -4,9 +4,10 @@ include 'includes/functions.inc.php';
 include 'includes/mysql-connect.php';
 
 
+	$s = $_SESSION["usersID"];
     $query = "SELECT usersID, firstName, lastName, email, userid
                 FROM users
-                WHERE usersid='"+ $_SESSION["usersID"] + "'";
+                WHERE usersid='$s'";
 	$con = mysqli_connect("localhost", "root", "", "vibeguide");
     $result = mysqli_query($con, $query);
 
