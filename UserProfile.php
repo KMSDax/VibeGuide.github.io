@@ -3,9 +3,11 @@ include_once 'header.php';
 include 'includes/functions.inc.php';
 include 'includes/mysql-connect.php';
 
+
+	$s = "luis2";
     $query = "SELECT usersID, firstName, lastName, email, userid
                 FROM users
-                WHERE userid='$username'";
+                WHERE userid='$s'";
 	$con = mysqli_connect("localhost", "root", "", "vibeguide");
     $result = mysqli_query($con, $query);
 
@@ -25,10 +27,10 @@ include 'includes/mysql-connect.php';
                             <tr><td></td></tr>
                             <tr><td></td></tr>
                             
-                            <tr><td>First Name: </td><td>$firstname</td></tr>
-                            <tr><td>Last Name: </td><td>$lastname</td></tr>
+                            <tr><td>First Name: </td><td>$firstName</td></tr>
+                            <tr><td>Last Name: </td><td>$lastName</td></tr>
                             <tr><td>email: </td><td>$email</td></tr>
-                            <tr><td>Username: </td><td>$username</td></tr>
+                            <tr><td>Username: </td><td>$userid</td></tr>
                             
                         </table>";
                     }
