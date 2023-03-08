@@ -50,13 +50,11 @@ session_start();
         <a href="#"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
         <a href="#"><i class="fa-solid fa-location-dot"></i>Vibes</a>
         <?php
-        if (isset($_SESSION["username"]) and isset($_SESSION["RoleID"]) == 2) {
+        if (isset($_SESSION["username"])) {
           echo "<a href='profile.php'><i class='fa fa-fw fa-user'></i>Profile</a>";
           echo "<a href ='includes/logout.inc.php'><i class='fa fa-fw fa-user'></i>Logout</i></a>";
-        } else if (isset($_SESSION["username"]) and isset($_SESSION["RoleID"]) == 1) {
-          echo "<a href='admin_profile.php'><i class='fa fa-fw fa-user'></i>Admin</a>";
-          echo "<a href ='includes/logout.inc.php'><i class='fa fa-fw fa-user'></i>Logout</i></a>";
-        } else {
+        } 
+        else {
           echo "<a href='login.php'><i class='fa fa-fw fa-user'></i> Login</a>";
           echo "<a href ='signup.php'><i class='fa fa-fw fa-user'></i>Register</i></a>";
         }

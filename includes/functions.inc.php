@@ -44,7 +44,7 @@ function PasswordMatch($password,$passrepeat) {
     return $result;
 }
 function UseridExists($conn, $username, $email) {
-    $sql = "SELECT * FROM user3 WHERE userid = ? OR email = ?;";
+    $sql = "SELECT * FROM users WHERE userid = ? OR email = ?;";
     $stmt = mysqli_stmt_init($conn);
     
     if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -66,7 +66,7 @@ function UseridExists($conn, $username, $email) {
     mysqli_stmt_close($stmt);
 }
 function createUser($conn, $firstname, $lastname, $email, $userid, $password) {
-    $sql = "INSERT INTO user3(firstName,lastName,email,userid,password,RoleID) VALUES(?,?,?,?,?,2);";
+    $sql = "INSERT INTO users(firstName,lastName,email,userid,password) VALUES(?,?,?,?,?);";
     $stmt = mysqli_stmt_init($conn);
     
     if(!mysqli_stmt_prepare($stmt,$sql)){

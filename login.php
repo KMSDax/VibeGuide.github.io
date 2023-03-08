@@ -11,6 +11,14 @@ include_once 'header.php';
 				<tr><td><input type="text" name="userid" placeholder="Username/E-mail"></td></tr>
 				<tr><td><input type="password" name="password" placeholder="Password"></td></tr>
 				<tr><td><button type="submit" name="submit">Log in</button></td></tr>
+                                <tr><td><a href ="reset-password.php">Forgot your password?</a></td></tr>
+                                <?php
+                                if(isset($_GET["newpwd"])){
+                                    if($_GET["newpwd"] == "passwordupdated"){
+                                        echo '<tr><td><p class ="signupsuccess">Your Password has been reset!</p></td></tr>';
+                                    }
+                                }
+                                ?>
 			</table>
         </form>
         
