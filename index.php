@@ -10,7 +10,7 @@ include_once 'header.php';
         <h2>Discover Your Vibe</h2>
         <!-- Load the `mapbox-gl-geocoder` plugin. -->
 
-        <div id="newmap" style="height:1000px; width:1400px;"></div>
+        <div id="newmap" style="height:1000px; width:100%;"></div>
 
 
         <script>

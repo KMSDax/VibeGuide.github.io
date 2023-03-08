@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+$s = $_SESSION["usersID"];
+    $query = "SELECT usersID, firstName, lastName, email, userid
+                FROM users
+                WHERE usersid='$s'";
+	$con = mysqli_connect("localhost", "root", "", "vibeguide");
+    $result = mysqli_query($con, $query);
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +34,13 @@ session_start();
   <style>
 
   </style>
+  <script>
+	function menuToggle() {
+		const toggleMenu = document.querySelector('.menu');
+		toggleMenu.classList.toggle('active');
+	
+	};
+	</script>
 
 </head>
 
@@ -44,7 +58,7 @@ session_start();
       <div class="wrapper">
 
       </div>
-      <nav>
+      <nav style="padding-right:145px";>
         <a class="active" href="index.php"><i class="fa-solid fa-house"></i> Home</a>
         <a href="#"><i class="fa-solid fa-bolt"></i>About Us</a>
         <a href="#"><i class="fa-solid fa-magnifying-glass"></i>Search</a>
@@ -53,6 +67,22 @@ session_start();
         if (isset($_SESSION["username"])) {
           echo "<a href='profile.php'><i class='fa fa-fw fa-user'></i>Profile</a>";
           echo "<a href ='includes/logout.inc.php'><i class='fa fa-fw fa-user'></i>Logout</i></a>";
+		  echo "<div class='dropDown'>
+					<div onclick='menuToggle()' class='profile'>
+						<i class='fa fa-fw fa-user'>Profile Page</i>
+					</div>";
+							
+			while(list($usersID, $firstName, $lastName, $email, $userid) = mysqli_fetch_row($result)) {
+				echo"<ul class='menu'>
+						<div class='profile-img'><img src='images/vibe2.jpg'></div>
+						<li>Name: $firstName $lastName</li>
+						<li>email: $email</li>
+						<li>Username: $userid</li>
+						<li><a href='profile.php'>See More</a></li>
+					</ul>
+				</div>";
+                    }
+							;
         } 
         else {
           echo "<a href='login.php'><i class='fa fa-fw fa-user'></i> Login</a>";
