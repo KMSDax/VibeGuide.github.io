@@ -13,6 +13,9 @@ include 'includes/mysql-connect.php';
 
 ?>
 
+
+
+	<section class="signup-form">
     <div class="body-image2">
         <div class="flexArea">
             <main>
@@ -20,9 +23,9 @@ include 'includes/mysql-connect.php';
                 <div class="flexBox">
                 <?php 
                 while(list($usersID, $firstName, $lastName, $email, $userid) = mysqli_fetch_row($result)) {
+						  
                     echo"<table>
                             <tr><td><h1>Profile Page</h1></td></tr>
-                            <tr><td><label class='form-label' > pfp </label></td></tr>
                             <tr><td><input type='file' name='pass'></td></tr>
                             <tr><td></td></tr>
                             <tr><td></td></tr>
@@ -46,7 +49,7 @@ include 'includes/mysql-connect.php';
                 </div>
             </main>
         </div>
-            
+        </section>
 
 <?php 
 include_once 'footer.php';
